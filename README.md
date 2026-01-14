@@ -71,4 +71,4 @@ Star schema design with single-direction relationships for optimal performance.
 
 ---
 
-## 📁 Repository Structure
+
