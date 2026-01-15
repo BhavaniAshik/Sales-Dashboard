@@ -1,1 +1,93 @@
+/* =========================================
+   SALES PERFORMANCE DASHBOARD – DAX MEASURES
+   ========================================= */
+
+/* ---------- BASE MEASURES ---------- */
+
+Total Sales =
+SUM ( FactSales[Sales] )
+
+Total Profit =
+SUM ( FactSales[Profit] )
+
+Total Orders =
+DISTINCTCOUNT ( FactSales[OrderID] )
+
+AOV =
+DIVIDE ( [Total Sales], [Total Orders] )
+
+/* ---------- DATE-BASED MEASURES ---------- */
+
+Sales YTD =
+TOTALYTD (
+    [Total Sales],
+    DimDate[Date]
+)
+
+Profit YTD =
+TOTALYTD (
+    [Total Profit],
+    DimDate[Date]
+)
+
+/* Previous Year Sales */
+Sales PY =
+CALCULATE (
+    [Total Sales],
+    SAMEPERIODLASTYEAR ( DimDate[Date] )
+)
+
+/* YoY Growth % */
+YoY Growth % =
+DIVIDE (
+    [Total Sales] - [Sales PY],
+    [Sales PY]
+)
+
+/* ---------- TREND MEASURES ---------- */
+
+Monthly Sales =
+CALCULATE (
+    [Total Sales],
+    ALLEXCEPT ( DimDate, DimDate[Year], DimDate[Month] )
+)
+
+Monthly Profit =
+CALCULATE (
+    [Total Profit],
+    ALLEXCEPT ( DimDate, DimDate[Year], DimDate[Month] )
+)
+
+/* ---------- RANKING & TOP N ---------- */
+
+Customer Rank =
+RANKX (
+    ALL ( DimCustomer[CustomerName] ),
+    [Total Sales],
+    ,
+    DESC,
+    DENSE
+)
+
+/* Used with Top N slicer */
+Top N Filter =
+IF (
+    [Customer Rank] <= SELECTEDVALUE ( 'Top N'[Top N Value], 5 ),
+    1,
+    0
+)
+
+/* ---------- CATEGORY CONTRIBUTION ---------- */
+
+Sales % by Category =
+DIVIDE (
+    [Total Sales],
+    CALCULATE ( [Total Sales], ALL ( DimProduct[Category] ) )
+)
+
+Profit % by Category =
+DIVIDE (
+    [Total Profit],
+    CALCULATE ( [Total Profit], ALL ( DimProduct[Category] ) )
+)
 
