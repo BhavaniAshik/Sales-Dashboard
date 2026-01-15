@@ -1,74 +1,84 @@
-# 📊 Sales Performance Dashboard – Power BI
+# 📊 Sales Performance Dashboard (Power BI)
 
 ## 📌 Project Overview
-This project is an end-to-end **Sales Performance Dashboard** built using **Power BI**, **SQL**, and **DAX**.  
-The dashboard provides insights into sales trends, profitability, customer performance, and year-over-year growth to support business decision-making.
-
-The project follows **real-world BI development practices** including star schema modeling, time intelligence, and performance-optimized DAX.
+This project showcases a **Sales Performance Dashboard** built using **Power BI**, **SQL**, and **DAX**.  
+The dashboard provides a comprehensive view of **sales**, **profit**, **growth trends**, and **customer performance** to support business decision-making.
 
 ---
 
 ## 🎯 Business Objectives
-- Track overall sales and profitability
-- Analyze Year-over-Year (YoY) and YTD performance
-- Identify top-performing customers and categories
-- Monitor monthly and yearly sales trends
-- Enable interactive analysis using slicers
+- Monitor overall sales and profit performance
+- Track Year-over-Year (YoY) growth
+- Analyze sales trends over time
+- Identify top-performing customers
+- Understand category-wise sales and profit contribution
 
 ---
 
-## 📊 Key KPIs
+## 🛠 Tools & Technologies
+- **Power BI** – Data modeling, DAX measures, visualization
+- **SQL** – Data extraction and aggregation
+- **DAX** – KPI calculations and time intelligence
+- **Excel / CSV** – Source data
+- **GitHub** – Version control and documentation
+
+---
+
+## 📈 Key KPIs
 - **Total Sales**
-- **Sales Previous Year (PY)**
-- **YoY Growth %**
 - **Sales YTD**
+- **YoY Growth %**
 - **Total Profit**
 - **Profit YTD**
 - **Average Order Value (AOV)**
 
 ---
 
-## 📈 Visuals Included
-- KPI Cards (Sales, Profit, YoY, YTD)
-- Monthly Sales vs Previous Year comparison
-- Sales Trend by Year–Month
+## 📊 Dashboard Visuals
+- Total Sales vs Previous Year Sales (Monthly)
+- Sales & Profit Trend Over Time
 - Sales by Category
-- Profit by Category (Donut Chart)
+- Profit by Category
 - Top N Customers by Sales & Profit
-- Interactive slicers (Date, Category, Top N)
+- Date & Category Slicers for Dynamic Analysis
 
 ---
 
-## 🧠 DAX Concepts Used
-- Base measures
-- Filter context & row context
-- Time intelligence:
-  - SAMEPERIODLASTYEAR
-  - TOTALYTD
-  - DATEADD
-- Dynamic Top N using disconnected slicer
-- RANKX and ALL
-- DIVIDE for safe calculations
+## 🧮 DAX Measures Used
+- Total Sales
+- Total Profit
+- Sales YTD
+- Profit YTD
+- Previous Year Sales
+- YoY Growth %
+- Average Order Value (AOV)
+- Top N Customer Logic
+
+**DAX Measures File Location:**  
+`/DAX/Sales_Dashboard_DAX_Measures.dax`
 
 ---
 
-## 🗂 Data Model
-- **FactSales**
-- **DimDate**
-- **DimCustomer**
-- **DimProduct**
+## 🗄 SQL Queries
+SQL was used to:
+- Aggregate sales and profit
+- Group data by date, category, and customer
+- Prepare datasets for Power BI modeling
 
-Star schema design with single-direction relationships for optimal performance.
+**SQL File Location:**  
+`/SQL/Sales_Dashboard_SQL.sql`
+
+---
+
+## 💡 Key Learnings
+- Implemented **time intelligence** using a Date table
+- Designed **dynamic KPIs** using DAX
+- Used **Top N logic** for customer analysis
+- Followed **star schema** data modeling
+- Built an **executive-friendly dashboard layout**
 
 ---
 
-## 🛠 Tools & Technologies
-- **Power BI Desktop**
-- **DAX**
-- **Power Query**
-- **SQL**
-- **Microsoft Excel**
-
----
+## 📷 Dashboard Preview
 
 
